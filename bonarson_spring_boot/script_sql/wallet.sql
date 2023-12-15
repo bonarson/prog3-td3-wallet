@@ -29,7 +29,7 @@ create table categories(
 -- Ajout de la colonne id_category à la table transaction
 alter table transaction
 add column id_category int references categories(id_category);
-
+CREATE FUNCTION calculate_balance_changes(
  p_account_id INT,
     p_start_date TIMESTAMP,
     p_end_date TIMESTAMP
