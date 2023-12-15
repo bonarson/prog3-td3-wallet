@@ -37,3 +37,6 @@ add column id_category int references categories(id_category);
      SELECT COALESCE(SUM(CASE WHEN Type = 'salair' or type="restaurant" THEN solde ELSE -solde END), 0)
     INTO total_balance_changes
     FROM account
+
+    END;
+SELECT calculate_balance_changes(1, '2023-01-01 00:00:00', '2023-12-31 23:59:59') AS total_changes;
