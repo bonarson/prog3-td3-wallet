@@ -33,7 +33,9 @@ CREATE FUNCTION calculate_balance_changes(
  p_account_id INT,
     p_start_date TIMESTAMP,
     p_end_date TIMESTAMP
-
+) RETURNS FLOAT
+BEGIN
+    DECLARE total_balance_changes FLOAT;
      SELECT COALESCE(SUM(CASE WHEN Type = 'salair' or type="restaurant" THEN solde ELSE -solde END), 0)
     INTO total_balance_changes
     FROM account
