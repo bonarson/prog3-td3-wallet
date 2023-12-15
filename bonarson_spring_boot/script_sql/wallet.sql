@@ -39,6 +39,9 @@ BEGIN
      SELECT COALESCE(SUM(CASE WHEN Type = 'salair' or type="restaurant" THEN solde ELSE -solde END), 0)
     INTO total_balance_changes
     FROM account
+    WHERE IdAccount = p_account_id
+        AND date_heure BETWEEN p_start_date AND p_end_date;
 
+    RETURN total_balance_changes;
     END;
 SELECT calculate_balance_changes(1, '2023-01-01 00:00:00', '2023-12-31 23:59:59') AS total_changes;
