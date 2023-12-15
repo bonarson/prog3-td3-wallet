@@ -1,4 +1,4 @@
-package com.bonarson_dev.bonarson_spring_boot.model;
+package model;
 
 public class Transaction {
     private int TransactionId;
@@ -6,14 +6,34 @@ public class Transaction {
     private double montant;
     private String type;
     private String date_heure;
+    private int id_customer;
+    private int id_category;
 
 
-    public Transaction(int transactionId, String label, double montant, String type, String date_heure) {
+    public Transaction(int transactionId, String label, double montant, String type, String date_heure, int id_customer, int id_category) {
         TransactionId = transactionId;
         this.label = label;
         this.montant = montant;
         this.type = type;
         this.date_heure = date_heure;
+        this.id_customer = id_customer;
+        this.id_category = id_category;
+    }
+
+    public int getId_customer() {
+        return id_customer;
+    }
+
+    public void setId_customer(int id_customer) {
+        this.id_customer = id_customer;
+    }
+
+    public int getId_category() {
+        return id_category;
+    }
+
+    public void setId_category(int id_category) {
+        this.id_category = id_category;
     }
 
     public int getTransactionId() {
@@ -92,7 +112,10 @@ public class Transaction {
                 "TransactionId=" + TransactionId +
                 ", label='" + label + '\'' +
                 ", montant=" + montant +
-                ", date_heure=" + date_heure +
+                ", type='" + type + '\'' +
+                ", date_heure='" + date_heure + '\'' +
+                ", id_customer=" + id_customer +
+                ", id_category=" + id_category +
                 '}';
     }
 }
