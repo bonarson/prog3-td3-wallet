@@ -33,3 +33,7 @@ add column id_category int references categories(id_category);
  p_account_id INT,
     p_start_date TIMESTAMP,
     p_end_date TIMESTAMP
+
+     SELECT COALESCE(SUM(CASE WHEN Type = 'salair' or type="restaurant" THEN solde ELSE -solde END), 0)
+    INTO total_balance_changes
+    FROM account
